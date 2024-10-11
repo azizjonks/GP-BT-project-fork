@@ -114,35 +114,35 @@ def plot_results():
 
         logs = []
         for i in range(1, n_logs + 1):
-            logs.append('scenario1_deterministic_' + str(i))
+            logs.append('scenario1_' + str(i))
         plotpars.mean_color = 'b'
         plotpars.legend_name = 'Deterministic'
         logplot.plot_learning_curves(logs, plotpars)
 
         logs = []
         for i in range(1, n_logs + 1):
-            logs.append('scenario1_stoch1_' + str(i))
+            logs.append('scenario1_' + str(i))
         plotpars.mean_color = 'r'
         plotpars.legend_name = 'Stochastic 1'
         logplot.plot_learning_curves(logs, plotpars)
 
         logs = []
         for i in range(1, n_logs + 1):
-            logs.append('scenario1_stoch2_' + str(i))
+            logs.append('scenario1_' + str(i))
         plotpars.mean_color = 'g'
         plotpars.legend_name = 'Stochastic 2'
         logplot.plot_learning_curves(logs, plotpars)
 
         logs = []
         for i in range(1, n_logs + 1):
-            logs.append('scenario1_stoch3_' + str(i))
+            logs.append('scenario1_' + str(i))
         plotpars.mean_color = 'c'
         plotpars.legend_name = 'Stochastic 3'
         logplot.plot_learning_curves(logs, plotpars)
         
         logs = []
         for i in range(1, n_logs + 1):
-            logs.append('scenario1_stoch4_' + str(i))
+            logs.append('scenario1_' + str(i))
         plotpars.mean_color = 'k'
         plotpars.legend_name = 'Stochastic 4'
         plotpars.save_fig = True
@@ -158,21 +158,21 @@ def plot_results():
 
         logs = []
         for i in range(1, n_logs + 1):
-            logs.append('scenario1_base_' + str(i))
+            logs.append('scenario1_' + str(i))
         plotpars.mean_color = 'b'
         plotpars.legend_name = 'Necessary behaviors'
         logplot.plot_learning_curves(logs, plotpars)
 
         logs = []
         for i in range(1, n_logs + 1):
-            logs.append('scenario1_lowNoise_' + str(i))
+            logs.append('scenario1_' + str(i))
         plotpars.mean_color = 'r'
         plotpars.legend_name = '7 non-essential behaviors'
         logplot.plot_learning_curves(logs, plotpars)
 
         logs = []
         for i in range(1, n_logs + 1):
-            logs.append('scenario1_highNoise_' + str(i))
+            logs.append('scenario1_' + str(i))
         plotpars.mean_color = 'g'
         plotpars.legend_name = '14 non-essential behaviors'
         plotpars.save_fig = True
@@ -188,14 +188,14 @@ def plot_results():
 
         logs = []
         for i in range(1, n_logs + 1):
-            logs.append('scenario1_safe_' + str(i))
+            logs.append('scenario1_' + str(i))
         plotpars.mean_color = 'r'
         plotpars.legend_name = 'Safe Path'
         logplot.plot_learning_curves(logs, plotpars)
 
         logs = []
         for i in range(1, n_logs + 1):
-            logs.append('scenario1_risky_' + str(i))
+            logs.append('scenario1_' + str(i))
         plotpars.mean_color = 'b'
         plotpars.legend_name = 'Risky Path'
         plotpars.save_fig = True
