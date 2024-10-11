@@ -27,7 +27,7 @@ def run_simulation():
     # Scenario 2: one cube to pick from a random position out of three possibilities
     # Scenario 3: three cubes to pick from three different fixed positions
     scenario = 1
-    deterministic = True
+    deterministic = False
     verbose = False
 
     environment = Environment(scenario, deterministic, verbose)
