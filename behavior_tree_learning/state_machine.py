@@ -69,7 +69,7 @@ class Poses:
 @dataclass
 class SMParameters:
     """Data class for parameters for the state machine simulator """
-    deterministic: bool = True                            # Probabilistic nature of the simulator (deterministic/probabilistic)
+    deterministic: bool = True                             # Probabilistic nature of the simulator (deterministic/probabilistic)
     fail_pick_probability: float = 0.2                     # Probability of a failure in Picking (Place transition)
     fail_place_probability: float = 0.1                    # Probability of a failure in Placing (Place transition)
     fail_tuck_probability: float = 0.0                     # Probability of a failure in Tucking (Tuck transition)
@@ -83,7 +83,7 @@ class StateMachine:
     """
     Class for handling the State Machine Simulator
     """
-    def __init__(self, scenario, deterministic=True, verbose=False, pose_id=0):
+    def __init__(self, scenario, deterministic=False, verbose=False, pose_id=0):
 
         self.sm_par = SMParameters()
         self.sm_par.deterministic = deterministic

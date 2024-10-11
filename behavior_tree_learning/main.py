@@ -49,7 +49,7 @@ def run_simulation():
     gp_par.rerun_fitness = 0
     gp_par.allow_identical = False
     gp_par.plot = True
-    gp_par.n_generations = 300
+    gp_par.n_generations = 2000
     gp_par.verbose = False
     gp_par.fig_last_gen = False
 
