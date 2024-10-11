@@ -5,7 +5,7 @@ Interfaces to py_trees from behavior tree strings
 import os
 import sys
 
-sys.path.insert(1, '/home/matteo/Documents/py_trees')
+sys.path.insert(1, '/home/azizjon/Desktop/MAIN FOLDER/BT REREARCH PROJECTS/Environments/proj4_gp_bt/lib/python3.10/site-packages/py_trees')
 import py_trees as pt
 
 import behavior_tree as behavior_tree
@@ -129,4 +129,13 @@ class PyTree(pt.trees.BehaviourTree):
         """
         Saves the tree as a figure
         """
-        pt.display.render_dot_tree(self.root, name=name, target_directory=path)
+        # Original line
+        # pt.display.render_dot_tree(self.root, name=name, target_directory=path)
+
+        # My changed version
+        # pt.display.render_dot_tree(self.root, name=path)
+
+        # ChatGPT proposed the following version
+        # Construct the full path with the desired file name
+        full_path = os.path.join(path, name + ".dot")  # Save as a .dot file or the desired extension
+        pt.display.render_dot_tree(self.root, name=full_path)
