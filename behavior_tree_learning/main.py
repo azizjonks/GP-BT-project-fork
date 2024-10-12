@@ -55,7 +55,7 @@ def run_simulation():
 
 
     for i in range(1, 11):
-        gp_par.log_name = 'scenario1_' + str(i)
+        gp_par.log_name = 'scenario1_base_' + str(i)
         gp.set_seeds(i*100)
         scenario = 1
         environment = Environment(scenario, deterministic, verbose)
@@ -108,78 +108,78 @@ def plot_results():
 
     n_logs = 10
 
-    # PLOT 1: impact of the failure probabilities on the learning
-    if failure_prob:
-        plotpars.save_fig = False
-        plotpars.title = 'Impact of the failure probabilities'
-        plotpars.path = os.path.join(parent_dir, 'plots/runs_probability.svg')
-
-        logs = []
-        for i in range(1, n_logs + 1):
-            logs.append('scenario1_d_' + str(i))
-        plotpars.mean_color = 'b'
-        plotpars.legend_name = 'Deterministic'
-        logplot.plot_learning_curves(logs, plotpars)
-
-        logs = []
-        for i in range(1, n_logs + 1):
-            logs.append('scenario1_s1_' + str(i))
-        plotpars.mean_color = 'r'
-        plotpars.legend_name = 'Stochastic 1'
-        logplot.plot_learning_curves(logs, plotpars)
-
-        logs = []
-        for i in range(1, n_logs + 1):
-            logs.append('scenario1_s2_' + str(i))
-        plotpars.mean_color = 'g'
-        plotpars.legend_name = 'Stochastic 2'
-        logplot.plot_learning_curves(logs, plotpars)
-
-        logs = []
-        for i in range(1, n_logs + 1):
-            logs.append('scenario1_s3_' + str(i))
-        plotpars.mean_color = 'c'
-        plotpars.legend_name = 'Stochastic 3'
-        logplot.plot_learning_curves(logs, plotpars)
-        
-        logs = []
-        for i in range(1, n_logs + 1):
-            logs.append('scenario1_s4_' + str(i))
-        plotpars.mean_color = 'k'
-        plotpars.legend_name = 'Stochastic 4'
-        plotpars.save_fig = True
-
-        logplot.plot_learning_curves(logs, plotpars)
-
-
-    # # PLOT 2: impact of the noise on the learning
-    # if noise:
+    # # PLOT 1: impact of the failure probabilities on the learning
+    # if failure_prob:
     #     plotpars.save_fig = False
-    #     plotpars.title = 'Effects of adding non-essential behaviors'
-    #     plotpars.path = os.path.join(parent_dir, 'plots/runs_noise.svg')
+    #     plotpars.title = 'Impact of the failure probabilities'
+    #     plotpars.path = os.path.join(parent_dir, 'plots/runs_probability.svg')
     #
     #     logs = []
     #     for i in range(1, n_logs + 1):
-    #         logs.append('scenario1_' + str(i))
+    #         logs.append('scenario1_d_' + str(i))
     #     plotpars.mean_color = 'b'
-    #     plotpars.legend_name = 'Necessary behaviors'
+    #     plotpars.legend_name = 'Deterministic'
     #     logplot.plot_learning_curves(logs, plotpars)
     #
     #     logs = []
     #     for i in range(1, n_logs + 1):
-    #         logs.append('scenario1_' + str(i))
+    #         logs.append('scenario1_s1_' + str(i))
     #     plotpars.mean_color = 'r'
-    #     plotpars.legend_name = '7 non-essential behaviors'
+    #     plotpars.legend_name = 'Stochastic 1'
     #     logplot.plot_learning_curves(logs, plotpars)
     #
     #     logs = []
     #     for i in range(1, n_logs + 1):
-    #         logs.append('scenario1_' + str(i))
+    #         logs.append('scenario1_s2_' + str(i))
     #     plotpars.mean_color = 'g'
-    #     plotpars.legend_name = '14 non-essential behaviors'
+    #     plotpars.legend_name = 'Stochastic 2'
+    #     logplot.plot_learning_curves(logs, plotpars)
+    #
+    #     logs = []
+    #     for i in range(1, n_logs + 1):
+    #         logs.append('scenario1_s3_' + str(i))
+    #     plotpars.mean_color = 'c'
+    #     plotpars.legend_name = 'Stochastic 3'
+    #     logplot.plot_learning_curves(logs, plotpars)
+    #
+    #     logs = []
+    #     for i in range(1, n_logs + 1):
+    #         logs.append('scenario1_s4_' + str(i))
+    #     plotpars.mean_color = 'k'
+    #     plotpars.legend_name = 'Stochastic 4'
     #     plotpars.save_fig = True
     #
     #     logplot.plot_learning_curves(logs, plotpars)
+
+
+    # PLOT 2: impact of the noise on the learning
+    if noise:
+        plotpars.save_fig = False
+        plotpars.title = 'Effects of adding non-essential behaviors'
+        plotpars.path = os.path.join(parent_dir, 'plots/runs_noise.svg')
+
+        logs = []
+        for i in range(1, n_logs + 1):
+            logs.append('scenario1_base_' + str(i))
+        plotpars.mean_color = 'b'
+        plotpars.legend_name = 'Necessary behaviors'
+        logplot.plot_learning_curves(logs, plotpars)
+
+        logs = []
+        for i in range(1, n_logs + 1):
+            logs.append('scenario1_base_' + str(i))
+        plotpars.mean_color = 'r'
+        plotpars.legend_name = '7 non-essential behaviors'
+        logplot.plot_learning_curves(logs, plotpars)
+
+        logs = []
+        for i in range(1, n_logs + 1):
+            logs.append('scenario1_base_' + str(i))
+        plotpars.mean_color = 'g'
+        plotpars.legend_name = '14 non-essential behaviors'
+        plotpars.save_fig = True
+
+        logplot.plot_learning_curves(logs, plotpars)
     #
     #
     # # PLOT 3: impact of the failure probability cost on the fitness function
@@ -270,5 +270,5 @@ def plot_results():
 
 if __name__ == "__main__":
 
-    #run_simulation()
+    run_simulation()
     plot_results()
