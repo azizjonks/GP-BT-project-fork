@@ -160,14 +160,14 @@ def plot_results():
 
         logs = []
         for i in range(1, n_logs + 1):
-            logs.append('scenario1_highNoise_' + str(i))
+            logs.append('scenario1_base_' + str(i))
         plotpars.mean_color = 'b'
         plotpars.legend_name = 'Necessary behaviors'
         logplot.plot_learning_curves(logs, plotpars)
 
         logs = []
         for i in range(1, n_logs + 1):
-            logs.append('scenario1_highNoise_' + str(i))
+            logs.append('scenario1_lowNoise_' + str(i))
         plotpars.mean_color = 'r'
         plotpars.legend_name = '7 non-essential behaviors'
         logplot.plot_learning_curves(logs, plotpars)
@@ -270,5 +270,5 @@ def plot_results():
 
 if __name__ == "__main__":
 
-    run_simulation()
+    #run_simulation()
     plot_results()
