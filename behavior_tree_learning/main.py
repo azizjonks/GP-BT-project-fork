@@ -27,7 +27,7 @@ def run_simulation():
     # Scenario 2: one cube to pick from a random position out of three possibilities
     # Scenario 3: three cubes to pick from three different fixed positions
     scenario = 1
-    deterministic = False
+    deterministic = True
     verbose = False
 
     environment = Environment(scenario, deterministic, verbose)
@@ -49,7 +49,7 @@ def run_simulation():
     gp_par.rerun_fitness = 0
     gp_par.allow_identical = False
     gp_par.plot = True
-    gp_par.n_generations = 2000
+    gp_par.n_generations = 300
     gp_par.verbose = False
     gp_par.fig_last_gen = False
 
@@ -61,19 +61,21 @@ def run_simulation():
         environment = Environment(scenario, deterministic, verbose)
         gp.run(environment, gp_par)
 
-    for i in range(1, 11):
-        gp_par.log_name = 'scenario2_' + str(i)
-        gp.set_seeds(i*100)
-        scenario = 2
-        environment = Environment(scenario, deterministic, verbose)
-        gp.run(environment, gp_par)
 
-    for i in range(1, 11):
-        gp_par.log_name = 'scenario3_' + str(i)
-        gp.set_seeds(i*100)
-        scenario = 3
-        environment = Environment(scenario, deterministic, verbose)
-        gp.run(environment, gp_par)
+    # For the Figure 5 (a,b,c) (PLOT 1,2,3 ) we don't need scenario2 and scenario3 calculations
+    # for i in range(1, 11):
+    #     gp_par.log_name = 'scenario2_' + str(i)
+    #     gp.set_seeds(i*100)
+    #     scenario = 2
+    #     environment = Environment(scenario, deterministic, verbose)
+    #     gp.run(environment, gp_par)
+    #
+    # for i in range(1, 11):
+    #     gp_par.log_name = 'scenario3_' + str(i)
+    #     gp.set_seeds(i*100)
+    #     scenario = 3
+    #     environment = Environment(scenario, deterministic, verbose)
+    #     gp.run(environment, gp_par)
 
 
 
@@ -203,41 +205,42 @@ def plot_results():
         logplot.plot_learning_curves(logs, plotpars)
 
 
-    # PLOT 4: comparative study on the difficulty of learning a task
-    if scenarios:
-        plotpars.x_max = 4*400000
-        plotpars.legend_fsize = 14.0
-        plotpars.title_fsize = 16.0
-        plotpars.label_fsize = 14.0
-        plotpars.save_fig = False
-        plotpars.title = 'Learning of tasks with increasing difficulty'
-        plotpars.path = os.path.join(parent_dir, 'plots/runs_scenarios.svg')
-
-        logs = []
-        for i in range(1, n_logs + 1):
-            logs.append('scenario1_' + str(i))
-        plotpars.mean_color = 'b'
-        plotpars.std_color = 'b'
-        plotpars.legend_name = '1st Scenario'
-        logplot.plot_learning_curves(logs, plotpars)
-
-        logs = []
-        for i in range(1, n_logs + 1):
-            logs.append('scenario2_' + str(i))
-        plotpars.mean_color = 'r'
-        plotpars.std_color = 'r'
-        plotpars.legend_name = '2nd Scenario'
-        logplot.plot_learning_curves(logs, plotpars)
-
-        logs = []
-        for i in range(1, n_logs + 1):
-            logs.append('scenario3_' + str(i))
-        plotpars.mean_color = 'g'
-        plotpars.std_color = 'g'
-        plotpars.legend_name = '3rd Scenario'
-        plotpars.save_fig = True
-
-        logplot.plot_learning_curves(logs, plotpars)
+    #
+    # # PLOT 4: comparative study on the difficulty of learning a task
+    # if scenarios:
+    #     plotpars.x_max = 4*400000
+    #     plotpars.legend_fsize = 14.0
+    #     plotpars.title_fsize = 16.0
+    #     plotpars.label_fsize = 14.0
+    #     plotpars.save_fig = False
+    #     plotpars.title = 'Learning of tasks with increasing difficulty'
+    #     plotpars.path = os.path.join(parent_dir, 'plots/runs_scenarios.svg')
+    #
+    #     logs = []
+    #     for i in range(1, n_logs + 1):
+    #         logs.append('scenario1_' + str(i))
+    #     plotpars.mean_color = 'b'
+    #     plotpars.std_color = 'b'
+    #     plotpars.legend_name = '1st Scenario'
+    #     logplot.plot_learning_curves(logs, plotpars)
+    #
+    #     logs = []
+    #     for i in range(1, n_logs + 1):
+    #         logs.append('scenario2_' + str(i))
+    #     plotpars.mean_color = 'r'
+    #     plotpars.std_color = 'r'
+    #     plotpars.legend_name = '2nd Scenario'
+    #     logplot.plot_learning_curves(logs, plotpars)
+    #
+    #     logs = []
+    #     for i in range(1, n_logs + 1):
+    #         logs.append('scenario3_' + str(i))
+    #     plotpars.mean_color = 'g'
+    #     plotpars.std_color = 'g'
+    #     plotpars.legend_name = '3rd Scenario'
+    #     plotpars.save_fig = True
+    #
+    #     logplot.plot_learning_curves(logs, plotpars)
 
 
 
