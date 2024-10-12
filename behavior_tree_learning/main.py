@@ -55,7 +55,7 @@ def run_simulation():
 
 
     for i in range(1, 11):
-        gp_par.log_name = 'scenario1_lowNoise_' + str(i)
+        gp_par.log_name = 'scenario1_highNoise_' + str(i)
         gp.set_seeds(i*100)
         scenario = 1
         environment = Environment(scenario, deterministic, verbose)
@@ -160,21 +160,21 @@ def plot_results():
 
         logs = []
         for i in range(1, n_logs + 1):
-            logs.append('scenario1_lowNoise_' + str(i))
+            logs.append('scenario1_highNoise_' + str(i))
         plotpars.mean_color = 'b'
         plotpars.legend_name = 'Necessary behaviors'
         logplot.plot_learning_curves(logs, plotpars)
 
         logs = []
         for i in range(1, n_logs + 1):
-            logs.append('scenario1_lowNoise_' + str(i))
+            logs.append('scenario1_highNoise_' + str(i))
         plotpars.mean_color = 'r'
         plotpars.legend_name = '7 non-essential behaviors'
         logplot.plot_learning_curves(logs, plotpars)
 
         logs = []
         for i in range(1, n_logs + 1):
-            logs.append('scenario1_lowNoise_' + str(i))
+            logs.append('scenario1_highNoise_' + str(i))
         plotpars.mean_color = 'g'
         plotpars.legend_name = '14 non-essential behaviors'
         plotpars.save_fig = True
