@@ -27,7 +27,7 @@ def run_simulation():
     # Scenario 2: one cube to pick from a random position out of three possibilities
     # Scenario 3: three cubes to pick from three different fixed positions
     scenario = 1
-    deterministic = True
+    deterministic = False
     verbose = False
 
     environment = Environment(scenario, deterministic, verbose)
@@ -49,7 +49,7 @@ def run_simulation():
     gp_par.rerun_fitness = 0
     gp_par.allow_identical = False
     gp_par.plot = True
-    gp_par.n_generations = 300
+    gp_par.n_generations = 3000
     gp_par.verbose = False
     gp_par.fig_last_gen = False
 

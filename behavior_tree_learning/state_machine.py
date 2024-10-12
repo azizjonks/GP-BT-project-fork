@@ -69,14 +69,14 @@ class Poses:
 @dataclass
 class SMParameters:
     """Data class for parameters for the state machine simulator """
-    deterministic: bool = True                          # Probabilistic nature of the simulator (deterministic/probabilistic)
+    deterministic: bool = False                         # Probabilistic nature of the simulator (deterministic/probabilistic)
     fail_pick_probability: float = 0                     # Probability of a failure in Picking (Place transition)
     fail_place_probability: float = 0                    # Probability of a failure in Placing (Place transition)
     fail_tuck_probability: float = 0.0                     # Probability of a failure in Tucking (Tuck transition)
     fail_localization_probability: float = 0             # Probability of convergence failure of the AMCL particle filter (Loccalize transition)
     fail_navigation_probability: float = 0.0               # Probability of not reaching the correct pose (Pose transition)
     drop_probability: float = 0                        # Probability of dropping the cube during motion (Pose transition)
-    lost_probability: float = 0                         # Probability of loosing the localization during motion (Pose transition)
+    lost_probability: float = 0.1                         # Probability of loosing the localization during motion (Pose transition)
     verbose: bool = False                                 # Extra prints
 
 class StateMachine:
