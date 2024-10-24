@@ -55,7 +55,7 @@ def run_simulation():
 
 
     for i in range(1, 11):
-        gp_par.log_name = 'scenario1_risky_' + str(i)
+        gp_par.log_name = 'scenario1_safe_' + str(i)
         gp.set_seeds(i*100)
         scenario = 1
         environment = Environment(scenario, deterministic, verbose)
@@ -188,21 +188,21 @@ def plot_results():
         plotpars.title = 'Impact of the failure cost on the fitness'
         plotpars.path = os.path.join(parent_dir, 'plots/runs_safety.svg')
 
-        logs = []
-        for i in range(1, n_logs + 1):
-            logs.append('scenario1_risky_' + str(i))
-        plotpars.mean_color = 'r'
-        plotpars.legend_name = 'Safe Path'
-        logplot.plot_learning_curves(logs, plotpars)
-
         # logs = []
         # for i in range(1, n_logs + 1):
-        #     logs.append('scenario1_' + str(i))
-        # plotpars.mean_color = 'b'
-        # plotpars.legend_name = 'Risky Path'
-        # plotpars.save_fig = True
-        #
+        #     logs.append('scenario1_risky_' + str(i))
+        # plotpars.mean_color = 'r'
+        # plotpars.legend_name = 'Safe Path'
         # logplot.plot_learning_curves(logs, plotpars)
+
+        logs = []
+        for i in range(1, n_logs + 1):
+            logs.append('scenario1_safe_' + str(i))
+        plotpars.mean_color = 'b'
+        plotpars.legend_name = 'Safe Path'
+        plotpars.save_fig = True
+
+        logplot.plot_learning_curves(logs, plotpars)
 
 
     #
