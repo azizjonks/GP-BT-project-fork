@@ -13,7 +13,7 @@ class Coefficients:
     depth: float = 0.0
     length: float = 0.5
     time: float = 0.1
-    failure: float = 150
+    failure: float = 150.0
     # Task steps:
     task_completion: int = 300
     subtask: int = 100
