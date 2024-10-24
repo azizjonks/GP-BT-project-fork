@@ -55,7 +55,7 @@ def run_simulation():
 
 
     for i in range(1, 11):
-        gp_par.log_name = 'scenario1_highNoise_' + str(i)
+        gp_par.log_name = 'scenario1_risky_' + str(i)
         gp.set_seeds(i*100)
         scenario = 1
         environment = Environment(scenario, deterministic, verbose)
